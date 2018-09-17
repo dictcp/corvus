@@ -58,6 +58,7 @@
     HANDLER(SETNX,             BASIC,    WRITE)   \
     HANDLER(SETRANGE,          BASIC,    WRITE)   \
     HANDLER(STRLEN,            BASIC,    READ)    \
+    HANDLER(BITFIELD,          BASIC,    WRITE)   \
     /* hashes */                                  \
     HANDLER(HDEL,              BASIC,    WRITE)   \
     HANDLER(HEXISTS,           BASIC,    READ)    \
@@ -134,6 +135,13 @@
     HANDLER(PFADD,             BASIC,    WRITE)   \
     HANDLER(PFCOUNT,           BASIC,    READ)    \
     HANDLER(PFMERGE,           BASIC,    WRITE)   \
+    /* geo */                                     \
+    HANDLER(GEOADD,             BASIC,    WRITE)  \
+    HANDLER(GEOHASH,            BASIC,    READ)   \
+    HANDLER(GEOPOS,             BASIC,    READ)   \
+    HANDLER(GEODIST,            BASIC,    READ)   \
+    HANDLER(GEORADIUS,          BASIC,    READ)   \
+    HANDLER(GEORADIUSBYMEMBER,  BASIC,    READ)   \
     /* script */                                  \
     HANDLER(EVAL,              COMPLEX,  WRITE)   \
     HANDLER(EVALSHA,           UNIMPL,   UNKNOWN) \
@@ -147,7 +155,8 @@
     HANDLER(QUIT,              EXTRA,    UNKNOWN) \
     HANDLER(SELECT,            EXTRA,    UNKNOWN) \
     HANDLER(TIME,              EXTRA,    UNKNOWN) \
-    HANDLER(CONFIG,            EXTRA,    UNKNOWN)
+    HANDLER(CONFIG,            EXTRA,    UNKNOWN) \
+    HANDLER(MEMORY,            EXTRA,    UNKNOWN)
 
 #define CMD_DEFINE(cmd, type, access) CMD_##cmd,
 
